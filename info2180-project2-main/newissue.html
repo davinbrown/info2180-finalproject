@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>BugMe Issue Tracker</title>
+		<link href="issue.css" type="text/css" rel="stylesheet" />
+		<script src="issue.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+        <div class="container">
+        <div class= "header">BugMe Issue Tracker</div>
+
+	
+		
+            <div class ="navigation">
+              <nav>  
+                <ul>
+                   <li><a href= "">Home</a></li>
+                   <li><a href= "newuser.html">Add User</a></li>
+                   <li><a href= "newissue.html">New Issue</a></li>
+                   <li><a href= "index.html">Logout</a></li>
+                </ul>
+            </nav>
+            <main>
+            </div>
+			<div class ="issue">
+            <div class="issueform">
+                <h2>Create Issue</h2>
+				<form class="Issue-form">
+                <input type="text" placeholder=" Title " />
+                <textarea rows="4" cols="50" placeholder=" Description "></textarea>
+                <br></br>
+                <input type="text" placeholder=" Assigned to">
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                <option value="bug">Bug</option>
+                <option value="proposal">Proposal</option>
+                <option value="tas">Task</option>
+                </select>
+                <label for="priority">Priority:</label>
+                <select id="priority" name="priority">
+                <option value="minor">Minor</option>
+                <option value="major">Major</option>
+                <option value="critical">Critical</option>
+                </select>
+				<button>Submit</button>
+                </form>
+			</div>
+            </div>
+            
+				
+			
+		</main>
+    </div>
+	</body>
+</html>
