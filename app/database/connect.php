@@ -1,7 +1,7 @@
 <?php
     $host = 'localhost';
-    $user = 'webmaster';
-    $password = 'P*.ZA&]4Q6cYpWR';
+    $user = 'root';
+    $password = '';
     $database_name = 'bugme';
     $conn = new MySQLi($host, $user, $password, $database_name);
     if ($conn->connect_error){

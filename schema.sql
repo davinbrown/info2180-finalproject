@@ -59,7 +59,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `password`, `email`, `date_joined`) VALUES
-(1, 'web', 'admin', 'cbfdac6008f9cab4083784cbd1874f76618d2a97', 'admin@project2.com', '2021-11-16 12:03:27');
+(1, 'web', 'admin', '$2y$10$MuS6E7xOTVcTt.EzL5hNCOiHfR2blZ8tLxtKH/mx0.gscT4V24.FC', 'admin@project2.com', '2021-11-16 12:03:27');
 
 --
 -- Indexes for dumped tables
@@ -97,8 +97,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-GRANT USAGE ON *.* TO `webadmin`@`%` IDENTIFIED BY PASSWORD '*D27898E013341AEE43861337AA0415EFB4063AFE';
-
-GRANT ALL PRIVILEGES ON `bugme`.* TO `webadmin`@`%`;
