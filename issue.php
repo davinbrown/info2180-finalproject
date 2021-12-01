@@ -12,6 +12,7 @@
         <meta charset="utf-8">
 		<title>BugMe Issue Tracker | Issue</title>
 		<link href="./assets/css/styles.css" type="text/css" rel="stylesheet" />
+        <script src="./assets/js/issue.js"></script>
 	</head>
 
 	<body>
@@ -25,15 +26,25 @@
                     <div class="issueform">
                         <form>
                             <h2>Create Issue</h2>
-                            <input type="text" placeholder=" Title " />
-                            <textarea rows="4" cols="50" placeholder=" Description "></textarea>
+                            <div id="error"></div>
+                            <input id="title" type="text" placeholder=" Title " />
+                            <textarea id="description" rows="4" cols="50" placeholder=" Description "></textarea>
                             <br></br>
-                            <input type="text" placeholder=" Assigned to">
+                            <label for="assigned">Assigned to:</label>
+                            <select id="assigned" name="assigned" placeholder=" Assigned to">
+                                <?php
+                                    $allusers = selectAll("users");
+                                    foreach ($allusers as $user) { ?>
+                                        <option value=<?=$user['id'] ?> > <?=$user['firstname'] ." ". $user['lastname'] ?> </option>
+                                    <?php
+                                    }
+                                ?>
+                            </select>
                             <label for="type">Type:</label>
                             <select id="type" name="type">
                                 <option value="bug">Bug</option>
                                 <option value="proposal">Proposal</option>
-                                <option value="tas">Task</option>
+                                <option value="task">Task</option>
                             </select>
                             <label for="priority">Priority:</label>
                             <select id="priority" name="priority">
@@ -41,7 +52,7 @@
                                 <option value="major">Major</option>
                                 <option value="critical">Critical</option>
                             </select>
-                            <button>Submit</button>
+                            <button id="add-issue-btn">Submit</button>
                         </form>
                     </div>
                 </div>

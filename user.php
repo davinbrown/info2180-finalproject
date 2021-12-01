@@ -1,4 +1,4 @@
-<?php include("path.php") ?>
+<?php include("path.php"); ?>
 <?php include(ROOT_PATH . "/app/controler/users.php"); ?>
 <?php
     if(!isset($_SESSION['id'])){
@@ -12,6 +12,7 @@
         <meta charset="utf-8">
 		<title>BugMe Issue Tracker | Users</title>
 		<link href="./assets/css/styles.css" type="text/css" rel="stylesheet" />
+        <script src="./assets/js/user.js"></script>
 	</head>
 
 	<body>
@@ -23,8 +24,9 @@
             <main>
                 <div id="result" class="result ">
                     <div class="register">
-                        <form method="post">
+                        <form >
                             <h2>New User</h2>
+                            <div id="error"></div>
                             <input id="firstname" type="text" placeholder=" Firstname " />
                             <input id="lastname" type="text" placeholder=" Lastname " />
                             <input id="email" type="text" placeholder=" E-mail " />

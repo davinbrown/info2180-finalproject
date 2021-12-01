@@ -41,5 +41,83 @@ function selectOne($table, $conditions ){ // Resusable func to get data from dat
     return $records;
 }
 
+function create($table, $data){
+    global $conn;
+    $sql = "INSERT INTO $table SET";
+    $i = 0;
+    foreach ($data as $key => $value) {
+        if ($i === 0) {
+            $sql = $sql . " $key=?";
+        }else {
+            $sql = $sql . ", $key=?";
+        }
+        $i++;
+    }
+    $stmt = executeQuery($sql, $data);
+    $id = $stmt->insert_id;
+    return $id;
+}
 
+function selectAll($table, $conditions = []){ // Resusable func to get data from database
+    global $conn;
+    $sql = "SELECT * FROM $table";
+    if(empty($conditions)){
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $records;
+    }else{
+        $i = 0;
+        foreach ($conditions as $key => $value) {
+            if ($i === 0) {
+                $sql = $sql . " WHERE $key=?" ;
+            }else {
+                $sql = $sql . " AND $key=?" ;
+            }
+            $i++;
+        }
+        $stmt = executeQuery($sql, $conditions);
+        $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $records;
+    }
+}
+
+function validateNames($data){ 
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    $namePattern = "/^[a-zA-Z0-9 -,'.]*$/";
+
+    if(empty($data) || !preg_match($namePattern,$data)){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function validateEmail($data){ 
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    $emailPattern = "/^[a-zA-Z0-9]*$/";
+
+    if(empty($data) || !preg_match($emailPattern,$data)){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function validatePassword($data){ 
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    $emailPattern = "/^[a-zA-Z0-9]*$/";
+
+    if(empty($data) || !preg_match($emailPattern,$data)){
+        return false;
+    }else{
+        return true;
+    }
+}
 ?>
