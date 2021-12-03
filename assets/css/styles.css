@@ -28,6 +28,7 @@ nav ul li {
     padding: 12px;
     cursor: pointer;
 }
+
 nav ul li:hover {
     background-color: grey;
 }
@@ -118,6 +119,6 @@ form button:hover{
 }
 
 #error{
-    height: 40px;
+    min-height: 40px;
     color: red;
 }
