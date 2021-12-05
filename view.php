@@ -12,7 +12,7 @@
         <meta charset="utf-8">
 		<title>BugMe Issue Tracker</title>
         <link href="./assets/css/styles.css" type="text/css" rel="stylesheet" />
-		<script src="./assets/js/issues.js"></script>
+		<script src="./assets/js/app.js"></script>
 	</head>
 
 	<body>
@@ -52,6 +52,7 @@
                     <h3> Status:</h3>
                     <p><?php echo $issue['status']; ?></p> 
                     <br></br>
+                    <input id="issue"type="hidden" value="<?php $issue['id'] ;?>">
                     <button id="Mark-as-closed-btn">Mar as Closed</button>
                     <button id="Mark-inprogress-btn">Mark In Progress</button>
                 </div>

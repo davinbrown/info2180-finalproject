@@ -34,4 +34,5 @@ window.onload = function() {
         }
         httpRequest.send(`request=addissue&title=${title}&description=${description}&assigned=${assigned}&type=${type}&priority=${priority}`);
     }
+
 };

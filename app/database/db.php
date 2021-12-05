@@ -82,6 +82,25 @@ function selectAll($table, $conditions = []){ // Resusable func to get data from
     }
 }
 
+function update($table, $id, $data){
+    global $conn;
+    $sql = "UPDATE $table SET ";
+    $i = 0;
+    foreach ($data as $key => $value) {
+        if ($i === 0) {
+            $sql = $sql . " $key=?";
+        }else {
+            $sql = $sql . ", $key=?";
+        }
+        $i++;
+    }
+    $sql = $sql . " WHERE id=?";
+    $data['id'] = $id;
+    $stmt = executeQuery($sql, $data);
+    $id = $stmt->insert_id;
+    return $stmt->affected_rows;
+}
+
 function validateNames($data){ 
     $data = trim($data);
     $data = stripslashes($data);
