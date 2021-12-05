@@ -99,7 +99,7 @@ function validateEmail($data){
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
-    $emailPattern = "/^[a-zA-Z0-9]*$/";
+    $emailPattern = "/^[a-zA-Z0-9@.]*$/";
 
     if(empty($data) || !preg_match($emailPattern,$data)){
         return false;
